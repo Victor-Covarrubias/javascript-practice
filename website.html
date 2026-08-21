@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic HTMl and CSS with javascript integration</title>
+        <style>
+            .red-button{
+                background-color: red;
+                color: white;
+                border: none;
+            }
+
+            .yellow-button{
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+        The onclick attribute is another way of adding
+        javascript code, this code runs when the button is
+        clicked
+        -->
+        <button title="tooltip" class="red-button" 
+        onclick="
+            alert('You clicked the button!');
+        ">
+            Hello
+        </button>
+
+        <p>
+            paragraph
+            <button class="yellow-button">
+                Hello
+            </button>
+        </p>
+
+        <!--
+        The javascript code inside the script element
+        has to be in the las part
+        of the body, this code runs after the page is loaded
+        -->
+        <script>
+            //alert creates a pop up with a message
+            //alert('Hello');
+            console.log(2 + 2);
+            console.log('some' + ' text');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects</title>
+        
+    </head>
+    <body>
+        
+        <script>
+            //this is an oblect
+            const product = {
+                name: 'socks',
+                price: 1090
+            };
+            console.log(product);
+            console.log(product.name);
+            console.log(product.price);
+
+            product.name = 'cotton socks';
+            console.log(product);
+
+            //add values to the object#151515
+            product.newProperty = true;
+            console.log(product);
+
+            delete product.newProperty;
+            console.log(product);
+
+            const product2 = {
+                name: 'shirt',
+                //['delivery-time']: '1 day' the brackets are optional here
+                'delivery-time': '1 day',
+                /*
+                we can also use an object as an atribute this is know as 
+                nested objects
+                */
+                rating: {
+                    stars: 4.5,
+                    count: 100
+                },
+                /*
+                a function is another type of value in javascript
+                the function is inside an object so it counts as a class function
+                because of that this is now known as a method, for example console 
+                is also an object so log is a method of that object, also console is
+                a built-in object becauses it is provided by the language we dont have
+                to import something else to use it
+                */
+
+                fun : function function1(){
+                    console.log('function inside object');
+                }
+            };
+            //brackt notation
+            console.log(product2['name']);
+            /*
+            we use bracket to access atributes (more known as properties
+            here in javascript like this one) if i had used dot notation 
+            the program wouldve tot there was a minus operation
+            */
+            console.log(product2['delivery-time']);
+            console.log(product2.rating.count);
+            product2.fun();
+
+            //to convert an object to JSON
+            console.log(JSON.stringify(product2));
+            const jsonString = JSON.stringify(product2);
+            console.log(JSON.parse(jsonString));
+
+            /*
+            simple values like the strings also have methods
+            how is this possibe if they arent objects?
+            well this is possible thanks to a feature call auto-boxing
+            the value is wraped by a especial object automatically.
+            Autoboxing doesnt work with undefined or null values
+            */
+            console.log('hello'.length);
+            console.log('hello'.toUpperCase());
+
+            //objects are actually references so object1 is a reference to the object created
+            const object1 = {
+                message: 'hello'
+            };
+
+            //here we are not copying the whole object we are just copying the reference
+            const object2 = object1;
+
+            object1.message = 'Good job!';
+            //even if the object was created with const we can still change its values
+            console.log(object1);
+            /*
+            we can notice that the value changed for object2 aswell cuz they use the same
+            reference
+            */
+            console.log(object2);
+
+            const object3 = {
+                message: 'Good job!'
+            };
+
+            /*
+            they are ot e1ual even if they have the same values and thats because
+            this compares the references not the objects
+            */
+            console.log(object1 === object3);
+            //these 2 have the same reference so they are equal
+            console.log(object1 === object2);
+
+            const object4 = {
+                message: 'Good job!',
+                price: 899
+            };
+
+            /*
+            const message =  object4.message;
+            this is the same and it works because of the destructuring, we can also add more 
+            variables if the object has more properties
+            */
+            const { message, price } = object4;
+            console.log(message);
+            console.log(price);
+
+            //shorthand property
+            const object5 = {
+                /*
+                message: message
+                if the property and the value are called the same we can just type it once
+                */
+                message,
+                /*
+                we also have a shorcut for methods
+                method: function function1(){
+                    console.log('method');
+                }
+                */
+                method(){
+                    console.log('method');
+                }
+
+            };
+
+            console.log(object5);
+            object5.method();
+        </script>
+    </body>
+</html>  

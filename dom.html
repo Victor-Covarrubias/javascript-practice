@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM</title>
+        <!--the DOM is a nother built-in object called the document object-->
+        
+    </head>
+    <body>
+        <button>Hello</button>
+        <button class="js-button">Second button</button>
+
+        <script>
+            /*
+            this method lets us get any element (the first one) and put it inside our javascript
+            console.log(document.querySelector('button').innerHTML);
+            document.querySelector('button').innerHTML = 'Changed';
+            to get another element we use the dot to access the class this is called class selector
+            its the same we use when accesing a class in CSS, if we create a class so that we can
+            access a specified element in javascript then its a good practice to start the name of
+            the class with js-
+            */
+            const buttonElement = document.querySelector('.js-button');
+            console.log(buttonElement);
+
+            /*
+            console.log(document.title);
+            document.title = 'Changed';
+
+            console.log(document.body);
+            console.log(typeof document.body);
+
+            
+            //innerHTML gives us all the html inside the body and we can control it too
+            //well actually every element has the property innerhtml to control the content of it
+            console.log(document.body.innerHTML);
+            document.body.innerHTML = '<button>Good job!!!!</button>';
+            */
+
+            /*
+            document.body.innerHTML = 'hello';
+            document.title = 'Good job';
+            */
+        </script>
+    </body>
+</html>  

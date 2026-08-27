@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Projects</title>
+    </head>
+    <body>
+        <p>Youtube Subscribe Button</p>
+        <button onclick="
+            subscribe();
+        " class="js-subscribe-button">Subscribe</button>
+
+        <script>
+            function subscribe(){
+                const buttonElement = document.querySelector('.js-subscribe-button');
+                /*
+                Using innertext instead of innerhtml is better since we dont get extra spaces
+                thatc could be there and that way we can compare it better
+                */
+                if (buttonElement.innerText === 'Subscribe'){
+                    buttonElement.innerText = 'Subscribed';
+                } else{
+                    buttonElement.innerText = 'Subscribe';
+                }
+            }
+        </script>
+    </body>
+</html>  

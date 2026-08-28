@@ -7,9 +7,55 @@
         <p>Youtube Subscribe Button</p>
         <button onclick="
             subscribe();
-        " class="js-subscribe-button">Subscribe</button>
+        " class="js-subscribe-button">
+            Subscribe
+        </button>
+
+        <p>Amazon Shipping Calculator</p>
+
+        <!--
+        we add the attribute onkeydown so that we can calculate the cost with enter too
+        clicks and keydowns are events
+        onlickdown and onkeydown are known as event listeners
+        -->
+        <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+            handleCostKeydown(event);
+        ">
+
+        <button onclick="
+            calculateTotal();
+        ">Calculate</button>
+
+        <p class="js-total-cost"></p>
 
         <script>
+            //this way we convert numbers to strings
+            String(25);
+            //type coercion or automated type convertion
+            console.log('25' - 5);
+            console.log('25' + 5);
+
+            function handleCostKeydown(event){
+                //when we use onkeydown we create a special object called event
+                //console.log(event.key);
+
+                if (event.key === 'Enter'){
+                    calculateTotal();
+                }
+            }
+
+            function calculateTotal(){
+                const inputElement = document.querySelector('.js-cost-input');
+                //we get the value as a string with value so we convert it to a number
+                let cost = Number(inputElement.value);
+
+                if (cost < 40){
+                    cost += 10;
+                }
+
+                document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+
+            }
             function subscribe(){
                 const buttonElement = document.querySelector('.js-subscribe-button');
                 /*

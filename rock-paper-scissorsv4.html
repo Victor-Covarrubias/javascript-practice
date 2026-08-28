@@ -18,6 +18,8 @@
             playGame('scissors');
         ">Scissors</button>
 
+        <p class="js-result"></p>
+        <p class="js-moves"></p>
         <p class="js-score"></p>
             
         <button onclick="
@@ -26,6 +28,7 @@
             score.ties = 0;
             //to reset the score we need to remove it from the local storage
             localStorage.removeItem('score');
+            updateScoreElement();
         ">Reset Score</button>
         <script>
 
@@ -37,6 +40,8 @@
                 losses: 0,
                 ties: 0
             };
+
+            updateScoreElement();
             
             /*
             the same as checking if score === null
@@ -91,8 +96,19 @@
                 //to store a value in local storage
                 localStorage.setItem('score', JSON.stringify(score));
 
-                alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+                updateScoreElement();
+
+                document.querySelector('.js-result').innerHTML = result;
+
+                document.querySelector('.js-moves').innerHTML = 
+                    `You ${playerMove} - ${computerMove} Computer`;
+
+            }
+
+            function updateScoreElement(){
+                //to update the score
+                document.querySelector('.js-score').innerHTML = 
+                    `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
             }
 
             function pickComputerMove(){

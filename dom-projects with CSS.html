@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Projects</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .subscribe-button{
+                border: none;
+                border-radius: 20px;
+                background-color: black;
+                color: white;
+                font-weight: bold; 
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-right: 15px;
+                padding-left: 15px;
+                cursor: pointer;
+                margin-bottom: 30px;
+            }
+
+            .is-subscribed{
+                background-color: rgb(241, 241, 241);
+                color: black;
+            }
+
+            .cost-input{
+                font-size: 15px;
+                padding: 10px;
+            }
+
+            .calculate-button{
+                background-color: green;
+                color: white;
+                border: none;
+                font-size: 15px;
+                padding: 12px 15px;
+                cursor: pointer;    
+            }
+
+        </style>
+    </head>
+    <body>
+        <p>Youtube Subscribe Button</p>
+        <!--we can add more than one class with a space-->
+        <button onclick="
+            subscribe();
+        " class="js-subscribe-button subscribe-button">
+            Subscribe
+        </button>
+
+        <p>Amazon Shipping Calculator</p>
+
+        <!--
+        we add the attribute onkeydown so that we can calculate the cost with enter too
+        clicks and keydowns are events
+        onlickdown and onkeydown are known as event listeners
+        -->
+        <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+            handleCostKeydown(event);
+        ">
+
+        <button onclick="
+            calculateTotal();
+        " class="calculate-button">Calculate</button>
+
+        <p class="js-total-cost"></p>
+
+        <script>
+            //this way we convert numbers to strings
+            String(25);
+            //type coercion or automated type convertion
+            console.log('25' - 5);
+            console.log('25' + 5);
+
+            //window is another built-in object and it represents the browser
+            //window.document
+            window.console.log('window');
+            //window.alert
+
+            function handleCostKeydown(event){
+                //when we use onkeydown we create a special object called event
+                //console.log(event.key);
+
+                if (event.key === 'Enter'){
+                    calculateTotal();
+                }
+            }
+
+            function calculateTotal(){
+                const inputElement = document.querySelector('.js-cost-input');
+                //we get the value as a string with value so we convert it to a number
+                let cost = Number(inputElement.value);
+
+                if (cost < 40){
+                    cost += 10;
+                }
+
+                document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+
+            }
+            function subscribe(){
+                const buttonElement = document.querySelector('.js-subscribe-button');
+                /*
+                Using innertext instead of innerhtml is better since we dont get extra spaces
+                thatc could be there and that way we can compare it better
+                */
+                if (buttonElement.innerText === 'Subscribe'){
+                    buttonElement.innerText = 'Subscribed';
+                    //we use the classList object to add another class
+                    buttonElement.classList.add('is-subscribed');
+                } else{
+                    buttonElement.innerText = 'Subscribe';
+                    //we use the classList object to remove the extra class
+                    buttonElement.classList.remove('is-subscribed');
+                }
+            }
+        </script>
+    </body>
+</html>  

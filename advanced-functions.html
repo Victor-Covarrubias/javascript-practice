@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Advanced Functions</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <script>
+            /*
+            //the advantage of creating functions this way is called hoisting
+            greeting();
+            //we can run them before the code that creates them
+            function greeting(){
+                console.log('hello');
+            }
+            greeting();
+
+            //functions are values
+            const num = 2;
+            //const function1 = function greeting(){, there is no 
+            //need for a name since we can access the fuction with the name function1
+            const function1 = function (){
+                console.log('hello2');
+            }
+            console.log(function1);
+            console.log(typeof function1);
+            function1();
+
+            const object1 = {
+                num: 2,
+                //functions can be inside objects too, this is called a method
+                fun: function (){
+                    console.log('hello3');
+                }
+            };
+            object1.fun();
+
+            function display(param){
+                console.log(param);
+            }
+            display(2);
+
+            //we can also pass functions as parameters
+            function run(param){
+                param();
+            }
+            run(function(){
+                console.log('hello4');
+            });
+            
+
+            //setTimeout is a feature that lets us run functions in the future
+            //the program will ruin the function after 3 seconds
+            //asynchronous code
+            setTimeout(function(){
+                console.log('timeout')
+            }, 3000);
+            //it doesnt wait to do the previous line and does the second line first
+            console.log('next line');
+
+            //same as settimeout but it keeps runing each certain time
+            setInterval(function(){
+                console.log('interval');
+            }, 3000);
+
+            console.log(2);
+            */
+
+            //another way to loop trou an array, it is also the prefered way todo it
+            [
+                'make dinner',
+                'wash dishes',
+                'watch youtube'
+            ].forEach(function(value, index){
+                if (value === 'wash dishes'){
+                    //does the same as continue in a for loop
+                    return;
+                }
+
+                console.log(index);
+                console.log(value);
+            });
+            
+
+        </script>
+    </body>
+</html>  

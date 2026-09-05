@@ -7,7 +7,25 @@
         </style>
     </head>
     <body>
+        <button onclick="" class="js-button">Click</button>
+
         <script>
+            const buttonElement = document.querySelector('.js-button');
+
+            const eventListener = () => {
+                console.log('click');
+            }
+
+            //the advantage of using addeventlistener instead of onlick is that
+            buttonElement.addEventListener('click', eventListener);
+
+            //we can remove the events too
+            buttonElement.removeEventListener('click', eventListener);
+
+            //we can add multiple listeners to one event
+            buttonElement.addEventListener('click', () => {
+                console.log('click2');
+            });
             /*
             //the advantage of creating functions this way is called hoisting
             greeting();
@@ -68,12 +86,14 @@
             console.log(2);
             */
 
+            /*
             //another way to loop trou an array, it is also the prefered way todo it
             [
                 'make dinner',
                 'wash dishes',
                 'watch youtube'
-            ].forEach(function(value, index){
+                //when using for each its better to use arrow functions
+            ].forEach((value, index) => {
                 if (value === 'wash dishes'){
                     //does the same as continue in a for loop
                     return;
@@ -82,8 +102,65 @@
                 console.log(index);
                 console.log(value);
             });
-            
 
+            //arrow functions
+            const regularFunction = function(param, param2){
+                console.log('hello');
+                return 5;
+            }
+            
+            const arrowFunction = (param, param2) => {
+                console.log('hello');
+                return 5;
+            }
+            arrowFunction();
+
+            //arrow function have some shortcuts
+            //if it just has 1 parameter we can type it like this
+            const oneParam = param => {
+                console.log(param + 1);
+            }
+            oneParam(2);
+
+            //if the function just has one line we can quit the brackets and the return
+            const oneLine = () => 2 + 3;
+            console.log(oneLine());
+
+            const object2 = {
+                method: () => {
+
+                },
+                //short hand method syntax is a shorcut for object functions
+                method() {
+
+                }
+            };
+            */
+            
+            //more array methods
+            //the filter function does the following:
+            //if the return value is true the value is put in the array
+            console.log([1, -3, 5].filter((value, index) => {
+                /*
+                if (value >= 0){
+                    return true;
+                } else{
+                    return false;
+                }
+                */
+                return value >= 0;
+            }));
+
+            //now the map function, this one creates new values
+            //that when returned they are added to the array creating
+            //a new array based on the return value
+            console.log([1, 1, 3].map((value, index) => {
+                return value * 2;
+            }));
+
+            //when an arry function has just one parameter we can skip the parenthesis
+            //if its just one line we can also quit the brackets and the return
+            console.log([1, 1, 3].map(value => value * 2));
         </script>
     </body>
 </html>  
